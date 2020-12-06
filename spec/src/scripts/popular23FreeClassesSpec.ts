@@ -1,8 +1,8 @@
 // tslint:disable max-line-length
 
 import {Filename, Io, readLines} from "@sagittal/general"
-import {onlyRunInCi} from "../../helpers/onlyRunInCi"
-import {runScriptAndGetConsoleOutput} from "../../helpers/scripts/runScriptAndGetConsoleOutput"
+import {onlyRunInCi} from "../../helpers/shared/onlyRunInCi"
+import {runScriptAndGetConsoleOutput} from "../../helpers/shared/scripts/runScriptAndGetConsoleOutput"
 
 describe("popular-2-3-free-classes", (): void => {
     it("gives you the list of the most popular 3,3-free classes, according to N2D3P9 (I've chosen a max N2D3P9 which cuts the results off just before the first tie between ab/c, ac/b, and bc/a, which poses a problem for testing because different computation strategies arrive at these ties in different orders, their sorting amongst each other is irrelevant, and I cannot come up with a cheap and easy way to make their sorting consistent)", (): void => {
