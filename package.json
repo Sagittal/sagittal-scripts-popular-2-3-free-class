@@ -1,0 +1,36 @@
+{
+  "name": "sagittal-scripts-popular-2-3-free-class",
+  "version": "1.0.0",
+  "description": "contains scripts related to finding the most popular 2,3-free classes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sagittal/sagittal-scripts-popular-2-3-free-class.git"
+  },
+  "scripts": {
+    "profile": "node --prof -r ts-node/register/transpile-only --max-old-space-size=131072 [[script.ts]] && node --prof-process isolate-*.log > processed.txt && rm isolate-*.log",
+    "lint": "tslint \"src/**/*.ts\" --fix && tslint \"spec/**/*.ts\" --fix",
+    "test": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine",
+    "test-names": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine --names=true",
+    "test-ci": "node -r ts-node/register node_modules/jasmine/bin/jasmine --ci=true",
+    "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/tmp/tmp.ts",
+    "popular-2-3-free-classes": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/popular23FreeClass/scripts/popular23FreeClasses.ts",
+    "sorted-numerators": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/popular23FreeClass/scripts/sortedNumerators.ts"
+  },
+  "devDependencies": {
+    "@sagittal/general": "^1.0.3",
+    "@sagittal/system": "^1.0.4",
+    "@types/jasmine": "^3.6.2",
+    "@types/node": "^14.14.10",
+    "colors": "^1.4.0",
+    "commander": "^5.1.0",
+    "jasmine": "^3.6.3",
+    "jasmine-spec-reporter": "^5.0.2",
+    "ts-loader": "^8.0.11",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.3",
+    "typescript": "^4.1.2"
+  },
+  "engines": {
+    "node": ">14"
+  }
+}
