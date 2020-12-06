@@ -101,7 +101,7 @@ describe("popular-2-3-free-classes", (): void => {
 
         const actual = runScriptAndGetConsoleOutput(script)
 
-        const expected = readLines("src/scripts/popular23FreeClass/results/popular23FreeClasses.txt" as Filename)
+        const expected = readLines("src/results/popular23FreeClasses.txt" as Filename)
         expect(actual).toEqualLines(expected)
     })
 

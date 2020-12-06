@@ -5,7 +5,7 @@ import {Popular23FreeClass} from "./types"
 
 const computeKnownPopular23FreeClasses = (): Popular23FreeClass[] => {
     const knownPopular23FreeClasses =
-        readLines("src/scripts/popular23FreeClass/input/knownPopular23FreeClasses.txt" as Filename)
+        readLines("src/input/knownPopular23FreeClasses.txt" as Filename)
             .map((knownPopular23FreeClassIo: Io): Two3FreeClass => {
                 return parse23FreeClass(knownPopular23FreeClassIo)
             })
