@@ -36,7 +36,7 @@ const ALREADY_SEARCHED_UP_TO_NUMERATOR = 9765625
 
 const MAX_NUMERATOR = 9765625
 
-setupScriptAndIo("popular23FreeClass" as Filename)
+setupScriptAndIo("sortedNumerators" as Filename)
 
 const n2pResults: SortedNumeratorPossibilityWithGreaterGpfThanDenominatorPrimeIncludingN2P[] =
     [] as unknown[] as SortedNumeratorPossibilityWithGreaterGpfThanDenominatorPrimeIncludingN2P[]
