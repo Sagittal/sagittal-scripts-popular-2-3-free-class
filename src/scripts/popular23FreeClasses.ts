@@ -1,12 +1,12 @@
 import {
     Filename,
     Io,
-    ioSettings,
     LogTarget,
     NEWLINE,
     program,
     saveLog,
     ScriptFlag,
+    scriptSettings,
     setupScriptAndIo,
     sumTexts,
     time,
@@ -32,4 +32,4 @@ const popular23FreeClasses = computePopular23FreeClasses(maxN2D3P9)
 const popular23FreeClassesOutput: Io = computePopular23FreeClassesOutput(popular23FreeClasses, maxN2D3P9)
 saveLog(popular23FreeClassesOutput, LogTarget.FINAL)
 
-if (ioSettings.time) saveLog(sumTexts(NEWLINE, `took ${time()}`), LogTarget.FINAL)
+if (scriptSettings.time) saveLog(sumTexts(NEWLINE, `took ${time()}`), LogTarget.FINAL)

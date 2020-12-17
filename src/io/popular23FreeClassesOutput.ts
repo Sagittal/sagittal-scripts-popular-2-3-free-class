@@ -1,4 +1,4 @@
-import {Count, count, formatTable, Io, Max, Ranked, Row, sumTexts, Table} from "@sagittal/general"
+import {Count, count, formatTableFromScript, Io, Max, Ranked, Row, sumTexts, Table} from "@sagittal/general"
 import {N2D3P9} from "@sagittal/system"
 import {
     BestNotatingCommaProperties,
@@ -37,7 +37,7 @@ const computePopular23FreeClassesOutput = (
 
     const table = [...headerRows, ...rows]
 
-    const popular23FreeClassesOutput: Io = formatTable(table, {headerRowCount})
+    const popular23FreeClassesOutput: Io = formatTableFromScript(table, {headerRowCount})
 
     if (popular23FreeClassesScriptGroupSettings.useKnown) {
         return popular23FreeClassesOutput

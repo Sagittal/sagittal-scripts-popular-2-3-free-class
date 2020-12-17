@@ -6,7 +6,6 @@ import {
     dividesEvenly,
     Filename,
     formatTime,
-    ioSettings,
     LogTarget,
     Ms,
     NEWLINE,
@@ -14,6 +13,7 @@ import {
     Numerator,
     readLines,
     saveLog,
+    scriptSettings,
     setupScriptAndIo,
     sort,
     stringify,
@@ -105,4 +105,4 @@ sort(n2pResults, {by: computeKeyPath("n2p")})
 saveLog(stringify(n2Results, {multiline: true}), LogTarget.FINAL)
 saveLog(stringify(n2pResults, {multiline: true}), LogTarget.FINAL)
 
-if (ioSettings.time) saveLog(sumTexts(NEWLINE, `took ${time()}`), LogTarget.FINAL)
+if (scriptSettings.time) saveLog(sumTexts(NEWLINE, `took ${time()}`), LogTarget.FINAL)
