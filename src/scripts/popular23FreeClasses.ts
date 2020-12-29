@@ -5,7 +5,6 @@ import {
     NEWLINE,
     program,
     saveLog,
-    ScriptFlag,
     scriptSettings,
     setupScriptAndIo,
     sumTexts,
@@ -17,10 +16,10 @@ import {computePopular23FreeClassesOutput} from "../io"
 import {computePopular23FreeClasses} from "../popular23FreeClasses"
 
 program
-    .option(`-${ScriptFlag.MAX_N2D3P9}, --max-n2d3p9 <maxN2D3P9>`, "max N2D3P9", parseFloat)
-    .option(`-${ScriptFlag.USE_KNOWN_POPULAR_2_3_FREE_CLASSES}, --use-known`, "use known popular 2,3-free classes")
-    .option(`-${ScriptFlag.USE_LATE}, --use-late`, "use LATE (instead of LAAS)")
-    .option(`-${ScriptFlag.USE_BEST_NOTATING_COMMAS}, --use-best-notating-commas`, "use best notating comma (instead of notating symbol classes)")
+    .option("--max-n2d3p9 <maxN2D3P9>", "max N2D3P9", parseFloat)
+    .option("--use-known", "use known popular 2,3-free classes")
+    .option("--use-late", "use LATE (instead of LAAS)")
+    .option("--use-best-notating-commas", "use best notating comma (instead of notating symbol classes)")
 
 setupScriptAndIo("popular23FreeClasses" as Filename)
 
