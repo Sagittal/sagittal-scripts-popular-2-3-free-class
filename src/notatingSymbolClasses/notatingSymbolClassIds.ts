@@ -10,9 +10,9 @@ import {
     CommaClassId,
     getCommaClass,
     JI_NOTATION_COMMA_CLASS_IDS,
+    SYMBOL_CLASSES,
     SymbolClass,
     SymbolClassId,
-    SYMBOL_CLASSES,
 } from "@sagittal/system"
 
 // Different than findNotatingCommas because this one only concerns itself with commas that are in Sagittal
