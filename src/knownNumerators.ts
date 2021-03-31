@@ -1,4 +1,4 @@
-import {compute23FreeClass, computeScamonFromQuotient, Max, Quotient} from "@sagittal/general"
+import {compute23FreeClass, computeSpevFromQuotient, Max, Quotient} from "@sagittal/general"
 import {analyze23FreeClass, computeKnownRationalQuotients, N2D3P9} from "@sagittal/system"
 import {computePopular23FreeClass} from "./popular23FreeClass"
 import {Popular23FreeClass} from "./types"
@@ -6,8 +6,8 @@ import {Popular23FreeClass} from "./types"
 const computePopular23FreeClassFromRationalQuotient = (
     rationalQuotient: Quotient<{rational: true}>,
 ): Popular23FreeClass => {
-    const rationalScamon = computeScamonFromQuotient(rationalQuotient)
-    const two3FreeClass = compute23FreeClass(rationalScamon)
+    const rationalSpev = computeSpevFromQuotient(rationalQuotient)
+    const two3FreeClass = compute23FreeClass(rationalSpev)
     const two3FreeClassAnalysis = analyze23FreeClass(two3FreeClass)
 
     return computePopular23FreeClass(two3FreeClassAnalysis)

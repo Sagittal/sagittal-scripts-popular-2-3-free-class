@@ -1,10 +1,10 @@
-import {Scamon} from "@sagittal/general"
+import {Spev} from "@sagittal/general"
 import {SymbolClassId} from "@sagittal/system"
 import {computeNotatingSymbolClassIds} from "../../../src/notatingSymbolClasses/notatingSymbolClassIds"
 
 describe("computeNotatingSymbolClassIds", (): void => {
     it("returns a list of symbol class IDs whose comma classes notate this pitch relative to a skeleton of Pythagorean nominals", (): void => {
-        const jiPitch = {monzo: [0, -2, 0, 0, 1]} as Scamon<{rational: true}>
+        const jiPitch = {pev: [0, -2, 0, 0, 1]} as Spev<{rational: true}>
 
         const actual = computeNotatingSymbolClassIds(jiPitch)
 
@@ -16,7 +16,7 @@ describe("computeNotatingSymbolClassIds", (): void => {
     })
 
     it("another example", (): void => {
-        const jiPitch = {monzo: [0, 0, 1, 1]} as Scamon<{rational: true}>
+        const jiPitch = {pev: [0, 0, 1, 1]} as Spev<{rational: true}>
 
         const actual = computeNotatingSymbolClassIds(jiPitch)
 

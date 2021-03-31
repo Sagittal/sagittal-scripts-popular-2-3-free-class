@@ -10,7 +10,7 @@ const computeBestNotatingCommaProperties = (two3FreeClass: Two3FreeClass): BestN
 
     return {
         bestNotatingCommaCents: computeCentsFromPitch(bestNotatingComma),
-        bestNotatingCommaMonzo: bestNotatingComma.monzo,
+        bestNotatingCommaPev: bestNotatingComma.pev,
         bestNotatingCommaMaybeCommaClassId: maybeCommaClassId,
     }
 }

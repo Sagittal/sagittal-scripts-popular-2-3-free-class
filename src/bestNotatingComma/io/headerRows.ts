@@ -6,7 +6,7 @@ const POPULAR_2_3_FREE_CLASS_WITH_BEST_NOTATING_COMMA_FIELD_TITLES: Io[] = [
     "2,3- free class name",
     "N2D3P9 rank",
     "best notating comma cents",
-    "best notating comma monzo",
+    "best notating comma pev",
     "best notating comma maybe flacco",
 ] as Io[]
 

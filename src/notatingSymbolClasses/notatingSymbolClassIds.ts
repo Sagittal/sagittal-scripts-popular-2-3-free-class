@@ -1,9 +1,9 @@
 import {
-    areMonzosEqual,
-    computeRoughRationalMonzo,
-    invertMonzo,
+    arePevsEqual,
+    computeRoughRationalPev,
+    invertPev,
     isUndefined,
-    Scamon,
+    Spev,
     TWO_3_FREE,
 } from "@sagittal/general"
 import {
@@ -16,17 +16,17 @@ import {
 } from "@sagittal/system"
 
 // Different than findNotatingCommas because this one only concerns itself with commas that are in Sagittal
-const computeNotatingSymbolClassIds = ({monzo}: Scamon<{rational: true}>): SymbolClassId[] => {
+const computeNotatingSymbolClassIds = ({pev}: Spev<{rational: true}>): SymbolClassId[] => {
     const notatingSymbolClassIds: SymbolClassId[] = []
-    const two3FreeRationalMonzo = computeRoughRationalMonzo(monzo, TWO_3_FREE)
+    const two3FreeRationalPev = computeRoughRationalPev(pev, TWO_3_FREE)
 
     JI_NOTATION_COMMA_CLASS_IDS.forEach((commaClassId: CommaClassId): void => {
         const commaClass = getCommaClass(commaClassId)
-        const commaClassTwo3FreeMonzo = computeRoughRationalMonzo(commaClass.pitch.monzo, TWO_3_FREE)
+        const commaClassTwo3FreePev = computeRoughRationalPev(commaClass.pitch.pev, TWO_3_FREE)
 
         if (
-            areMonzosEqual(two3FreeRationalMonzo, commaClassTwo3FreeMonzo) ||
-            areMonzosEqual(two3FreeRationalMonzo, invertMonzo(commaClassTwo3FreeMonzo))
+            arePevsEqual(two3FreeRationalPev, commaClassTwo3FreePev) ||
+            arePevsEqual(two3FreeRationalPev, invertPev(commaClassTwo3FreePev))
         ) {
             const symbolClassEntries = Object.entries(SYMBOL_CLASSES) as Array<[SymbolClassId, SymbolClass]>
             const symbolClassEntry = symbolClassEntries

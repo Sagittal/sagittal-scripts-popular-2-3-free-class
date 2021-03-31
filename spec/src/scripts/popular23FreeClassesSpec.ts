@@ -118,7 +118,7 @@ describe("popular-2-3-free-classes", (): void => {
             "[tr][th]2,3-[/th][th][/th][th]best[/th][th]best[/th][th]notating[/th][/tr]",
             "[tr][th]free[/th][th][/th][th]notating[/th][th]notating[/th][th]comma[/th][/tr]",
             "[tr][th]class[/th][th]N2D3P9[/th][th]comma[/th][th]comma[/th][th]maybe[/th][/tr]",
-            "[tr][th]name[/th][th]rank[/th][th]cents[/th][th]monzo[/th][th]flacco[/th][/tr]",
+            "[tr][th]name[/th][th]rank[/th][th]cents[/th][th]pev[/th][th]flacco[/th][/tr]",
             "[tr][td][latex]\\{1\\}_{\\scriptsize{2,3}}[/latex][/td][td]1[/td][td]  0.000¢[/td][td][  ⟩[/td][td](:h:)[/td][/tr]",
             "[tr][td][latex]\\{5\\}_{\\scriptsize{2,3}}[/latex][/td][td]2[/td][td] 21.506¢[/td][td][  -4   4  -1 ⟩[/td][td]:/|:[/td][/tr]",
             "[tr][td][latex]\\{7\\}_{\\scriptsize{2,3}}[/latex][/td][td]3[/td][td] 27.264¢[/td][td][   6  -2   0  -1 ⟩[/td][td]:|):[/td][/tr]",

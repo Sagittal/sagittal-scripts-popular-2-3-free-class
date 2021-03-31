@@ -1,5 +1,5 @@
 import {
-    areRationalScamonsEqual,
+    areRationalSpevsEqual,
     COMMA_POPULARITIES,
     Decimal,
     Grade,
@@ -17,7 +17,7 @@ const computePopular23FreeClass = (
 ): Popular23FreeClass => {
     const {two3FreeClass} = two3FreeClassAnalysis
     const popularity = COMMA_POPULARITIES.find((popularity: ScalaPopularityStat): boolean => {
-        return areRationalScamonsEqual(popularity.two3FreeClass, two3FreeClass)
+        return areRationalSpevsEqual(popularity.two3FreeClass, two3FreeClass)
     })
     const popularityRank = !isUndefined(popularity) ? popularity.rank : undefined
     const votes = popularity?.votes || 0 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>

@@ -1,4 +1,4 @@
-import {Cents, IRRATIONAL_SCAMON_BASE_MONZO, Ranked, Row} from "@sagittal/general"
+import {Cents, IRRATIONAL_SPEV_BASE_PEV, Ranked, Row} from "@sagittal/general"
 import {CommaClassId} from "@sagittal/system"
 import {
     BestNotatingCommaProperties,
@@ -13,7 +13,7 @@ describe("computePopular23FreeClassWithBestNotatingCommaRow", (): void => {
             Ranked<Popular23FreeClass & BestNotatingCommaProperties> = {
             ...rankedPopular23FreeClassFixture,
             bestNotatingCommaCents: 5 as Cents,
-            bestNotatingCommaMonzo: IRRATIONAL_SCAMON_BASE_MONZO,
+            bestNotatingCommaPev: IRRATIONAL_SPEV_BASE_PEV,
             bestNotatingCommaMaybeCommaClassId: CommaClassId._19_V_5_P_4_7_s,
         } as Ranked<Popular23FreeClass & BestNotatingCommaProperties>
 
@@ -23,7 +23,7 @@ describe("computePopular23FreeClassWithBestNotatingCommaRow", (): void => {
             "{7/5}₂,₃",         // 2,3-free class name
             "4",                // Estimated rank
             "         5.000¢",  // Best notating comma cents
-            "[   1 ⟩",          // Best notating comma monzo
+            "[   1 ⟩",          // Best notating comma pev
             "   ,)|  ",         // Best notating comma maybe flacco
         ] as Row<{of: Popular23FreeClass & BestNotatingCommaProperties, header: true}>
         expect(actual).toEqual(expected)

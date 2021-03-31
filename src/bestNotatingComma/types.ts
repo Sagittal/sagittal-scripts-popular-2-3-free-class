@@ -1,9 +1,9 @@
-import {Cents, Maybe, Monzo} from "@sagittal/general"
+import {Cents, Maybe, Pev} from "@sagittal/general"
 import {CommaClassId} from "@sagittal/system"
 
 interface BestNotatingCommaProperties {
     bestNotatingCommaCents: Cents,
-    bestNotatingCommaMonzo: Monzo<{rational: true}>,
+    bestNotatingCommaPev: Pev<{rational: true}>,
     bestNotatingCommaMaybeCommaClassId: Maybe<CommaClassId>,
 }
 

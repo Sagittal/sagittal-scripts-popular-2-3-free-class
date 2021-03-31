@@ -4,7 +4,7 @@ import {
     Direction,
     Grade,
     Max,
-    Monzo,
+    Pev,
     Name,
     Prime,
     Rank,
@@ -36,7 +36,7 @@ const rankedPopular23FreeClassFixture: Ranked<SharedPopular23FreeClassProperties
     votes: 7 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
     popularityRank: 3 as Rank<ScalaPopularityStat>,
     two3FreeClass: {
-        monzo: [0, 0, -1, 1] as Monzo<{rational: true, rough: 5, direction: Direction.SUPER}>,
+        pev: [0, 0, -1, 1] as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
     } as Two3FreeClass,
 }
 
