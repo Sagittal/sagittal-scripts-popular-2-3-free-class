@@ -1,5 +1,3 @@
-// tslint:disable max-line-length
-
 import {Filename, Io, onlyRunInCi, readLines, runScriptAndGetConsoleOutput} from "@sagittal/general"
 
 describe("popular-2-3-free-classes", (): void => {

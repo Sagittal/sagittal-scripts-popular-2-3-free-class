@@ -23,9 +23,11 @@ program
 
 setupScriptAndIo("popular23FreeClasses" as Filename)
 
-const maxN2D3P9 = program.maxN2d3p9 || DEFAULT_MAX_N2D3P9
-popular23FreeClassesScriptGroupSettings.useKnown = !!program.useKnown
-popular23FreeClassesScriptGroupSettings.useBestNotatingCommas = !!program.useBestNotatingCommas
+const {maxN2d3p9, useKnown, useBestNotatingCommas} = program.opts()
+
+const maxN2D3P9 = maxN2d3p9 || DEFAULT_MAX_N2D3P9
+popular23FreeClassesScriptGroupSettings.useKnown = !!useKnown
+popular23FreeClassesScriptGroupSettings.useBestNotatingCommas = !!useBestNotatingCommas
 
 const popular23FreeClasses = computePopular23FreeClasses(maxN2D3P9)
 const popular23FreeClassesOutput: Io = computePopular23FreeClassesOutput(popular23FreeClasses, maxN2D3P9)
