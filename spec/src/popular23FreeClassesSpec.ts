@@ -3,11 +3,11 @@ import {
     Copfr,
     Decimal,
     Direction,
-    EMPTY_PEV,
+    EMPTY_VECTOR,
     Grade,
     Index,
     Max,
-    Pev,
+    Vector,
     Name,
     Prime,
     Rank,
@@ -16,10 +16,10 @@ import {
     Sopfr,
     Two3FreeClass,
 } from "@sagittal/general"
-import {CommaClassId, N2D3P9, SymbolClassId, SymbolSubsetId} from "@sagittal/system"
-import {popular23FreeClassesScriptGroupSettings} from "../../src/globals"
-import {computePopular23FreeClasses} from "../../src/popular23FreeClasses"
-import {Popular23FreeClass} from "../../src/types"
+import { CommaClassId, N2D3P9, SymbolClassId, SymbolSubsetId } from "@sagittal/system"
+import { popular23FreeClassesScriptGroupSettings } from "../../src/globals"
+import { computePopular23FreeClasses } from "../../src/popular23FreeClasses"
+import { Popular23FreeClass } from "../../src/types"
 
 describe("computePopular23FreeClasses", (): void => {
     it("returns a ranked (and sorted) list of the most popular 2,3-free classes with N2D3P9 less than the requested max           ", (): void => {
@@ -30,82 +30,113 @@ describe("computePopular23FreeClasses", (): void => {
         const expected = [
             {
                 name: "{1}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 1 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 0 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 0 as Copfr<{rough: 5}>,
-                n2d3p9: 1.000000 as N2D3P9,
+                two3FreePrimeLimit: 1 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 0 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 0 as Copfr<{ rough: 5 }>,
+                n2d3p9: 1.0 as N2D3P9,
                 two3FreeClass: {
-                    pev: EMPTY_PEV as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: EMPTY_VECTOR as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 1 as Rank<ScalaPopularityStat>,
-                votes: 7624 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
+                votes: 7624 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
                 notatingSymbolClassIds: [SymbolClassId.NULL, SymbolClassId.TICK_AND_LEFT_BARB],
-                notatingSymbolClassSmallestSymbolSubsetIndices:
-                    [0, 5] as Array<Index<SymbolSubsetId>>,
+                notatingSymbolClassSmallestSymbolSubsetIndices: [0, 5] as Array<
+                    Index<SymbolSubsetId>
+                >,
                 rank: 1 as Rank<Popular23FreeClass>,
             },
             {
                 name: "{5}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 5 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 5 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 1 as Copfr<{rough: 5}>,
+                two3FreePrimeLimit: 5 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 5 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 1 as Copfr<{ rough: 5 }>,
                 n2d3p9: 1.388888 as N2D3P9,
                 two3FreeClass: {
-                    pev: [0, 0, 1] as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: [0, 0, 1] as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 2 as Rank<ScalaPopularityStat>,
-                votes: 5371 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
+                votes: 5371 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
                 notatingSymbolClassIds: [SymbolClassId.TICK, SymbolClassId.LEFT_BARB],
-                notatingSymbolClassSmallestSymbolSubsetIndices:
-                    [5, 1] as Array<Index<SymbolSubsetId>>,
+                notatingSymbolClassSmallestSymbolSubsetIndices: [5, 1] as Array<
+                    Index<SymbolSubsetId>
+                >,
                 rank: 2 as Rank<Popular23FreeClass>,
             },
             {
                 name: "{7}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 7 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 7 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 1 as Copfr<{rough: 5}>,
+                two3FreePrimeLimit: 7 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 7 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 1 as Copfr<{ rough: 5 }>,
                 n2d3p9: 2.722222 as N2D3P9,
                 two3FreeClass: {
-                    pev: [0, 0, 0, 1] as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: [0, 0, 0, 1] as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 3 as Rank<ScalaPopularityStat>,
-                votes: 3016 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
+                votes: 3016 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
                 notatingSymbolClassIds: [SymbolClassId.RIGHT_ARC, SymbolClassId.TICK_BARB_AND_ARC],
-                notatingSymbolClassSmallestSymbolSubsetIndices:
-                    [1, 5] as Array<Index<SymbolSubsetId>>,
+                notatingSymbolClassSmallestSymbolSubsetIndices: [1, 5] as Array<
+                    Index<SymbolSubsetId>
+                >,
                 rank: 3 as Rank<Popular23FreeClass>,
             },
             {
                 name: "{25}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 5 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 10 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 2 as Copfr<{rough: 5}>,
+                two3FreePrimeLimit: 5 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 10 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 2 as Copfr<{ rough: 5 }>,
                 n2d3p9: 3.472222 as N2D3P9,
                 two3FreeClass: {
-                    pev: [0, 0, 2] as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: [0, 0, 2] as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 4 as Rank<ScalaPopularityStat>,
-                votes: 1610 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
-                notatingSymbolClassIds: [SymbolClassId.ANTITICK_AND_LEFT_BARB, SymbolClassId.DOUBLE_LEFT_BARB],
-                notatingSymbolClassSmallestSymbolSubsetIndices:
-                    [5, 1] as Array<Index<SymbolSubsetId>>,
+                votes: 1610 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
+                notatingSymbolClassIds: [
+                    SymbolClassId.ANTITICK_AND_LEFT_BARB,
+                    SymbolClassId.DOUBLE_LEFT_BARB,
+                ],
+                notatingSymbolClassSmallestSymbolSubsetIndices: [5, 1] as Array<
+                    Index<SymbolSubsetId>
+                >,
                 rank: 4 as Rank<Popular23FreeClass>,
             },
             {
                 name: "{7/5}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 7 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 12 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 2 as Copfr<{rough: 5}>,
+                two3FreePrimeLimit: 7 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 12 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 2 as Copfr<{ rough: 5 }>,
                 n2d3p9: 4.537037 as N2D3P9,
                 two3FreeClass: {
-                    pev: [0, 0, -1, 1] as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: [0, 0, -1, 1] as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 5 as Rank<ScalaPopularityStat>,
-                votes: 1318 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
-                notatingSymbolClassIds: [SymbolClassId.RIGHT_SCROLL, SymbolClassId.TICK_AND_RIGHT_ARC],
-                notatingSymbolClassSmallestSymbolSubsetIndices:
-                    [1, 5] as Array<Index<SymbolSubsetId>>,
+                votes: 1318 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
+                notatingSymbolClassIds: [
+                    SymbolClassId.RIGHT_SCROLL,
+                    SymbolClassId.TICK_AND_RIGHT_ARC,
+                ],
+                notatingSymbolClassSmallestSymbolSubsetIndices: [1, 5] as Array<
+                    Index<SymbolSubsetId>
+                >,
                 rank: 5 as Rank<Popular23FreeClass>,
             },
         ] as Array<Ranked<Popular23FreeClass>>
@@ -121,81 +152,101 @@ describe("computePopular23FreeClasses", (): void => {
         const expected = [
             {
                 name: "{1}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 1 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 0 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 0 as Copfr<{rough: 5}>,
-                n2d3p9: 1.000000 as N2D3P9,
+                two3FreePrimeLimit: 1 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 0 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 0 as Copfr<{ rough: 5 }>,
+                n2d3p9: 1.0 as N2D3P9,
                 two3FreeClass: {
-                    pev: EMPTY_PEV as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: EMPTY_VECTOR as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 1 as Rank<ScalaPopularityStat>,
-                votes: 7624 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
+                votes: 7624 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
                 bestNotatingCommaCents: 0 as Cents,
-                bestNotatingCommaPev: EMPTY_PEV as Pev<{rational: true}>,
+                bestNotatingCommaVector: EMPTY_VECTOR as Vector<{ rational: true }>,
                 bestNotatingCommaMaybeCommaClassId: CommaClassId._1_u,
                 rank: 1 as Rank<Popular23FreeClass>,
             },
             {
                 name: "{5}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 5 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 5 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 1 as Copfr<{rough: 5}>,
+                two3FreePrimeLimit: 5 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 5 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 1 as Copfr<{ rough: 5 }>,
                 n2d3p9: 1.388888 as N2D3P9,
                 two3FreeClass: {
-                    pev: [0, 0, 1] as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: [0, 0, 1] as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 2 as Rank<ScalaPopularityStat>,
-                votes: 5371 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
-                bestNotatingCommaCents: 21.506290 as Cents,
-                bestNotatingCommaPev: [-4, 4, -1] as Pev<{rational: true}>,
+                votes: 5371 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
+                bestNotatingCommaCents: 21.50629 as Cents,
+                bestNotatingCommaVector: [-4, 4, -1] as Vector<{ rational: true }>,
                 bestNotatingCommaMaybeCommaClassId: CommaClassId._1_V_5_C,
                 rank: 2 as Rank<Popular23FreeClass>,
             },
             {
                 name: "{7}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 7 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 7 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 1 as Copfr<{rough: 5}>,
+                two3FreePrimeLimit: 7 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 7 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 1 as Copfr<{ rough: 5 }>,
                 n2d3p9: 2.722222 as N2D3P9,
                 two3FreeClass: {
-                    pev: [0, 0, 0, 1] as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: [0, 0, 0, 1] as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 3 as Rank<ScalaPopularityStat>,
-                votes: 3016 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
+                votes: 3016 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
                 bestNotatingCommaCents: 27.264092 as Cents,
-                bestNotatingCommaPev: [6, -2, 0, -1] as Pev<{rational: true}>,
+                bestNotatingCommaVector: [6, -2, 0, -1] as Vector<{ rational: true }>,
                 bestNotatingCommaMaybeCommaClassId: CommaClassId._1_V_7_C,
                 rank: 3 as Rank<Popular23FreeClass>,
             },
             {
                 name: "{25}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 5 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 10 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 2 as Copfr<{rough: 5}>,
+                two3FreePrimeLimit: 5 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 10 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 2 as Copfr<{ rough: 5 }>,
                 n2d3p9: 3.472222 as N2D3P9,
                 two3FreeClass: {
-                    pev: [0, 0, 2] as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: [0, 0, 2] as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 4 as Rank<ScalaPopularityStat>,
-                votes: 1610 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
+                votes: 1610 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
                 bestNotatingCommaCents: 19.552569 as Cents,
-                bestNotatingCommaPev: [11, -4, -2] as Pev<{rational: true}>,
+                bestNotatingCommaVector: [11, -4, -2] as Vector<{ rational: true }>,
                 bestNotatingCommaMaybeCommaClassId: CommaClassId._1_V_25_C,
                 rank: 4 as Rank<Popular23FreeClass>,
             },
             {
                 name: "{7/5}₂,₃" as Name<Two3FreeClass>,
-                two3FreePrimeLimit: 7 as Max<Prime<{rough: 5}>>,
-                two3FreeSopfr: 12 as Sopfr<{rough: 5}>,
-                two3FreeCopfr: 2 as Copfr<{rough: 5}>,
+                two3FreePrimeLimit: 7 as Max<Prime<{ rough: 5 }>>,
+                two3FreeSopfr: 12 as Sopfr<{ rough: 5 }>,
+                two3FreeCopfr: 2 as Copfr<{ rough: 5 }>,
                 n2d3p9: 4.537037 as N2D3P9,
                 two3FreeClass: {
-                    pev: [0, 0, -1, 1] as Pev<{rational: true, rough: 5, direction: Direction.SUPER}>,
+                    vector: [0, 0, -1, 1] as Vector<{
+                        rational: true
+                        rough: 5
+                        direction: Direction.SUPER
+                    }>,
                 } as Two3FreeClass,
                 popularityRank: 5 as Rank<ScalaPopularityStat>,
-                votes: 1318 as Decimal<{integer: true}> & Grade<ScalaPopularityStat>,
+                votes: 1318 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
                 bestNotatingCommaCents: 29.217813 as Cents,
-                bestNotatingCommaPev: [-9, 6, 1, -1] as Pev<{rational: true}>,
+                bestNotatingCommaVector: [-9, 6, 1, -1] as Vector<{ rational: true }>,
                 bestNotatingCommaMaybeCommaClassId: CommaClassId._5_V_7_C,
                 rank: 5 as Rank<Popular23FreeClass>,
             },

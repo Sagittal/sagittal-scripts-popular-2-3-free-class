@@ -1,9 +1,9 @@
 import {
-    arePevsEqual,
-    computeRoughRationalPev,
-    invertPev,
+    areVectorsEqual,
+    computeRoughRationalVector,
+    invertVector,
     isUndefined,
-    Spev,
+    ScaledVector,
     TWO_3_FREE,
 } from "@sagittal/general"
 import {
@@ -16,24 +16,33 @@ import {
 } from "@sagittal/system"
 
 // Different than findNotatingCommas because this one only concerns itself with commas that are in Sagittal
-const computeNotatingSymbolClassIds = ({pev}: Spev<{rational: true}>): SymbolClassId[] => {
+const computeNotatingSymbolClassIds = ({
+    vector,
+}: ScaledVector<{ rational: true }>): SymbolClassId[] => {
     const notatingSymbolClassIds: SymbolClassId[] = []
-    const two3FreeRationalPev = computeRoughRationalPev(pev, TWO_3_FREE)
+    const two3FreeRationalVector = computeRoughRationalVector(vector, TWO_3_FREE)
 
     JI_NOTATION_COMMA_CLASS_IDS.forEach((commaClassId: CommaClassId): void => {
         const commaClass = getCommaClass(commaClassId)
-        const commaClassTwo3FreePev = computeRoughRationalPev(commaClass.pitch.pev, TWO_3_FREE)
+        const commaClassTwo3FreeVector = computeRoughRationalVector(
+            commaClass.pitch.vector,
+            TWO_3_FREE,
+        )
 
         if (
-            arePevsEqual(two3FreeRationalPev, commaClassTwo3FreePev) ||
-            arePevsEqual(two3FreeRationalPev, invertPev(commaClassTwo3FreePev))
+            areVectorsEqual(two3FreeRationalVector, commaClassTwo3FreeVector) ||
+            areVectorsEqual(two3FreeRationalVector, invertVector(commaClassTwo3FreeVector))
         ) {
-            const symbolClassEntries = Object.entries(SYMBOL_CLASSES) as Array<[SymbolClassId, SymbolClass]>
-            const symbolClassEntry = symbolClassEntries
-                .find(([_, symbolClass]: [SymbolClassId, SymbolClass]): boolean => {
+            const symbolClassEntries = Object.entries(SYMBOL_CLASSES) as Array<
+                [SymbolClassId, SymbolClass]
+            >
+            const symbolClassEntry = symbolClassEntries.find(
+                ([_, symbolClass]: [SymbolClassId, SymbolClass]): boolean => {
                     return symbolClass.commaClassId === commaClassId
-                })
-            if (isUndefined(symbolClassEntry)) throw new Error(`Did not find a symbol class with this comma class`)
+                },
+            )
+            if (isUndefined(symbolClassEntry))
+                throw new Error(`Did not find a symbol class with this comma class`)
             notatingSymbolClassIds.push(symbolClassEntry[0])
         }
     })
@@ -41,6 +50,4 @@ const computeNotatingSymbolClassIds = ({pev}: Spev<{rational: true}>): SymbolCla
     return notatingSymbolClassIds
 }
 
-export {
-    computeNotatingSymbolClassIds,
-}
+export { computeNotatingSymbolClassIds }

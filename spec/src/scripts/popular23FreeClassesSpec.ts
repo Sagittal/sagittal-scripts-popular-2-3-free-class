@@ -1,10 +1,17 @@
-import {Filename, Io, slowTestOnlyRunInFullSuite, readLines, runScriptAndGetConsoleOutput} from "@sagittal/general"
+import {
+    Filename,
+    Io,
+    slowTestOnlyRunInFullSuite,
+    readLines,
+    runScriptAndGetConsoleOutput,
+} from "@sagittal/general"
 
 describe("popular-2-3-free-classes", (): void => {
     it("gives you the list of the most popular 3,3-free classes, according to N2D3P9 (I've chosen a max N2D3P9 which cuts the results off just before the first tie between ab/c, ac/b, and bc/a, which poses a problem for testing because different computation strategies arrive at these ties in different orders, their sorting amongst each other is irrelevant, and I cannot come up with a cheap and easy way to make their sorting consistent)", (): void => {
         slowTestOnlyRunInFullSuite()
 
-        const script = "npm run popular-2-3-free-classes -- --max-n2d3p9 39.125 --table-format forum" as Io
+        const script =
+            "npm run popular-2-3-free-classes -- --max-n2d3p9 39.125 --table-format forum" as Io
 
         const actual = runScriptAndGetConsoleOutput(script)
 
@@ -62,7 +69,8 @@ describe("popular-2-3-free-classes", (): void => {
     it("works for a different max N2D3P9", (): void => {
         slowTestOnlyRunInFullSuite()
 
-        const script = "npm run popular-2-3-free-classes -- --max-n2d3p9 10 --table-format forum" as Io
+        const script =
+            "npm run popular-2-3-free-classes -- --max-n2d3p9 10 --table-format forum" as Io
 
         const actual = runScriptAndGetConsoleOutput(script)
 
@@ -93,7 +101,8 @@ describe("popular-2-3-free-classes", (): void => {
     it("can use a list of already known popular 3,3-free classes, rather than recalculate them all", (): void => {
         slowTestOnlyRunInFullSuite()
 
-        const script = "npm run popular-2-3-free-classes -- --max-n2d3p9 5298.1906468 --use-known" as Io
+        const script =
+            "npm run popular-2-3-free-classes -- --max-n2d3p9 5298.1906468 --use-known" as Io
 
         const actual = runScriptAndGetConsoleOutput(script)
 
@@ -104,7 +113,8 @@ describe("popular-2-3-free-classes", (): void => {
     it("can associate the popular 2,3-free classes with their best notating commas (instead of all of their notating symbol classes)", (): void => {
         slowTestOnlyRunInFullSuite()
 
-        const script = "npm run popular-2-3-free-classes -- --use-best-notating-commas --max-n2d3p9 10 --table-format forum" as Io
+        const script =
+            "npm run popular-2-3-free-classes -- --use-best-notating-commas --max-n2d3p9 10 --table-format forum" as Io
 
         const actual = runScriptAndGetConsoleOutput(script)
 
@@ -116,7 +126,7 @@ describe("popular-2-3-free-classes", (): void => {
             "[tr][th]2,3-[/th][th][/th][th]best[/th][th]best[/th][th]notating[/th][/tr]",
             "[tr][th]free[/th][th][/th][th]notating[/th][th]notating[/th][th]comma[/th][/tr]",
             "[tr][th]class[/th][th]N2D3P9[/th][th]comma[/th][th]comma[/th][th]maybe[/th][/tr]",
-            "[tr][th]name[/th][th]rank[/th][th]cents[/th][th]pev[/th][th]flacco[/th][/tr]",
+            "[tr][th]name[/th][th]rank[/th][th]cents[/th][th]vector[/th][th]flacco[/th][/tr]",
             "[tr][td][latex]\\{1\\}_{\\scriptsize{2,3}}[/latex][/td][td]1[/td][td]  0.000¢[/td][td][  ⟩[/td][td](:h:)[/td][/tr]",
             "[tr][td][latex]\\{5\\}_{\\scriptsize{2,3}}[/latex][/td][td]2[/td][td] 21.506¢[/td][td][  -4   4  -1 ⟩[/td][td]:/|:[/td][/tr]",
             "[tr][td][latex]\\{7\\}_{\\scriptsize{2,3}}[/latex][/td][td]3[/td][td] 27.264¢[/td][td][   6  -2   0  -1 ⟩[/td][td]:|):[/td][/tr]",

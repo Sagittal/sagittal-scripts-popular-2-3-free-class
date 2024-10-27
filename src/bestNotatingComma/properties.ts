@@ -1,20 +1,20 @@
-import {computeCentsFromPitch, Two3FreeClass} from "@sagittal/general"
-import {computeMaybeCommaClassId, findNotatingCommas} from "@sagittal/system"
-import {computeBestNotatingComma} from "./bestNotatingComma"
-import {BestNotatingCommaProperties} from "./types"
+import { computeCentsFromPitch, Two3FreeClass } from "@sagittal/general"
+import { computeMaybeCommaClassId, findNotatingCommas } from "@sagittal/system"
+import { computeBestNotatingComma } from "./bestNotatingComma"
+import { BestNotatingCommaProperties } from "./types"
 
-const computeBestNotatingCommaProperties = (two3FreeClass: Two3FreeClass): BestNotatingCommaProperties => {
+const computeBestNotatingCommaProperties = (
+    two3FreeClass: Two3FreeClass,
+): BestNotatingCommaProperties => {
     const notatingCommas = findNotatingCommas(two3FreeClass)
     const bestNotatingComma = computeBestNotatingComma(notatingCommas)
     const maybeCommaClassId = computeMaybeCommaClassId(bestNotatingComma)
 
     return {
         bestNotatingCommaCents: computeCentsFromPitch(bestNotatingComma),
-        bestNotatingCommaPev: bestNotatingComma.pev,
+        bestNotatingCommaVector: bestNotatingComma.vector,
         bestNotatingCommaMaybeCommaClassId: maybeCommaClassId,
     }
 }
 
-export {
-    computeBestNotatingCommaProperties,
-}
+export { computeBestNotatingCommaProperties }

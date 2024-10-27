@@ -1,13 +1,13 @@
 import {
     computeKeyPath,
     DEFAULT_PRECISION,
-    doForEachRationalPev,
-    isPevSub,
+    doForEachRationalVector,
+    isVectorSub,
     isUndefined,
     LogTarget,
     Max,
     Maybe,
-    Pev,
+    Vector,
     rank,
     Ranked,
     RankStrategy,
@@ -20,20 +20,23 @@ import {
     MAX_N2D3P9_FOR_WHICH_POSSIBLE_NUMERATORS_ARE_KNOWN,
     N2D3P9,
 } from "@sagittal/system"
-import {popular23FreeClassesScriptGroupSettings} from "./globals"
-import {computeKnownPopular23FreeClasses} from "./known23FreeClasses"
-import {computePopular23FreeClassesFromKnownNumerators} from "./knownNumerators"
-import {computeMaybePopular23FreeClass} from "./maybe"
-import {Popular23FreeClass} from "./types"
+import { popular23FreeClassesScriptGroupSettings } from "./globals"
+import { computeKnownPopular23FreeClasses } from "./known23FreeClasses"
+import { computePopular23FreeClassesFromKnownNumerators } from "./knownNumerators"
+import { computeMaybePopular23FreeClass } from "./maybe"
+import { Popular23FreeClass } from "./types"
 
 // "Super" as in "not sub", not as in "super popular!"
 const computeMaybeSuperPopular23FreeClass = (
-    two3FreeRationalPevForWork: Pev,
+    two3FreeRationalVectorForWork: Vector,
     maxN2D3P9: Max<N2D3P9>,
 ): Maybe<Popular23FreeClass> => {
-    const maybeSuperPopular23FreeClass = !isPevSub(two3FreeRationalPevForWork) ?
-        computeMaybePopular23FreeClass({pev: two3FreeRationalPevForWork} as Two3FreeClass, maxN2D3P9) :
-        undefined
+    const maybeSuperPopular23FreeClass = !isVectorSub(two3FreeRationalVectorForWork)
+        ? computeMaybePopular23FreeClass(
+              { vector: two3FreeRationalVectorForWork } as Two3FreeClass,
+              maxN2D3P9,
+          )
+        : undefined
 
     if (!isUndefined(maybeSuperPopular23FreeClass)) {
         saveLog(stringify(maybeSuperPopular23FreeClass), LogTarget.PROGRESS)
@@ -52,9 +55,10 @@ const computePopular23FreeClasses = (maxN2D3P9: Max<N2D3P9>): Array<Ranked<Popul
         saveLog("About to calculate prime exponent extremas given max N2D3P9", LogTarget.PROGRESS)
 
         if (maxN2D3P9 > MAX_N2D3P9_FOR_WHICH_POSSIBLE_NUMERATORS_ARE_KNOWN) {
-            const primeExponentExtremasGivenMaxN2D3P9 = computePrimeExponentExtremasGivenMaxN2D3P9(maxN2D3P9)
+            const primeExponentExtremasGivenMaxN2D3P9 =
+                computePrimeExponentExtremasGivenMaxN2D3P9(maxN2D3P9)
 
-            popular23FreeClasses = doForEachRationalPev(
+            popular23FreeClasses = doForEachRationalVector(
                 primeExponentExtremasGivenMaxN2D3P9,
                 computeMaybeSuperPopular23FreeClass,
                 maxN2D3P9,
@@ -71,6 +75,4 @@ const computePopular23FreeClasses = (maxN2D3P9: Max<N2D3P9>): Array<Ranked<Popul
     })
 }
 
-export {
-    computePopular23FreeClasses,
-}
+export { computePopular23FreeClasses }
