@@ -16,7 +16,7 @@ import {
     Two3FreeClass,
 } from "@sagittal/general"
 import {
-    computePrimeExponentExtremasGivenMaxN2D3P9,
+    computePrimeCountExtremasGivenMaxN2D3P9,
     MAX_N2D3P9_FOR_WHICH_POSSIBLE_NUMERATORS_ARE_KNOWN,
     N2D3P9,
 } from "@sagittal/system"
@@ -52,14 +52,13 @@ const computePopular23FreeClasses = (maxN2D3P9: Max<N2D3P9>): Array<Ranked<Popul
     if (popular23FreeClassesScriptGroupSettings.useKnown) {
         popular23FreeClasses = computeKnownPopular23FreeClasses()
     } else {
-        saveLog("About to calculate prime exponent extremas given max N2D3P9", LogTarget.PROGRESS)
+        saveLog("About to calculate prime count extremas given max N2D3P9", LogTarget.PROGRESS)
 
         if (maxN2D3P9 > MAX_N2D3P9_FOR_WHICH_POSSIBLE_NUMERATORS_ARE_KNOWN) {
-            const primeExponentExtremasGivenMaxN2D3P9 =
-                computePrimeExponentExtremasGivenMaxN2D3P9(maxN2D3P9)
+            const primeCountExtremasGivenMaxN2D3P9 = computePrimeCountExtremasGivenMaxN2D3P9(maxN2D3P9)
 
             popular23FreeClasses = doForEachRationalVector(
-                primeExponentExtremasGivenMaxN2D3P9,
+                primeCountExtremasGivenMaxN2D3P9,
                 computeMaybeSuperPopular23FreeClass,
                 maxN2D3P9,
             )
