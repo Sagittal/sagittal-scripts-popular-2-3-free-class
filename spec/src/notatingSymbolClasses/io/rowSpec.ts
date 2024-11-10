@@ -21,15 +21,18 @@ describe("computePopular23FreeClassWithNotatingSymbolClassesRow", (): void => {
             rankedPopular23FreeClassWithNotatingSymbolClasses,
         )
 
+        /* eslint-disable prettier/prettier */
         const expected = [
-            "{7/5}₂,₃", // 2,3-free class name
-            "  2.000", // N2D3P9
-            "    )|(     ./|  ", // Notating symbol classes
-            "1, 3", // Notating symbol classes smallest symbol subset indices
-            "4", // Estimated rank
-            "3", // Actual rank
-            "7", // Votes
+            "{7/5}₂,₃",             // 2,3-free class name
+            "  2.000",              // N2D3P9
+            "    )|(     ./|  ",    // Notating symbol classes
+            "1, 3",                 // Notating symbol classes smallest symbol subset indices
+            "4",                    // Estimated rank
+            "3",                    // Actual rank
+            "7",                    // Votes
         ] as Row<{ of: Popular23FreeClass & NotatingSymbolClassesProperties; header: true }>
+        /* eslint-enable prettier/prettier */
+
         expect(actual).toEqual(expected)
     })
 
@@ -39,15 +42,18 @@ describe("computePopular23FreeClassWithNotatingSymbolClassesRow", (): void => {
             rankedPopular23FreeClassWithNotatingSymbolClasses,
         )
 
+        /* eslint-disable prettier/prettier */
         const expected = [
-            "[latex]\\{\\frac{7}{5}\\}_{\\scriptsize{2,3}}[/latex]", // 2,3-free class name
-            "  2.000", // N2D3P9
-            ":)|(: :.::/|:", // Notating symbol classes
-            "1, 3", // Notating symbol classes smallest symbol subset indices
-            "4", // Estimated rank
-            "3", // Actual rank
-            "7", // Votes
+            "[latex]\\{\\frac{7}{5}\\}_{\\scriptsize{2,3}}[/latex]",    // 2,3-free class name
+            "  2.000",                                                  // N2D3P9
+            ":)|(: :.::/|:",                                            // Notating symbol classes
+            "1, 3",                                                     // Notating symbol classes smallest symbol subset indices
+            "4",                                                        // Estimated rank
+            "3",                                                        // Actual rank
+            "7",                                                        // Votes
         ] as Row<{ of: Popular23FreeClass & NotatingSymbolClassesProperties; header: true }>
+        /* eslint-enable prettier/prettier */
+
         expect(actual).toEqual(expected)
     })
 })

@@ -22,13 +22,16 @@ describe("computePopular23FreeClassWithBestNotatingCommaRow", (): void => {
             rankedPopular23FreeClassWithBestNotatingComma,
         )
 
+        /* eslint-disable prettier/prettier */
         const expected = [
-            "{7/5}₂,₃", // 2,3-free class name
-            "4", // Estimated rank
-            "         5.000¢", // Best notating comma cents
-            "[   1 ⟩", // Best notating comma vector
-            "   ,)|  ", // Best notating comma maybe flacco
+            "{7/5}₂,₃",         // 2,3-free class name
+            "4",                // Estimated rank
+            "         5.000¢",  // Best notating comma cents
+            "[   1 ⟩",          // Best notating comma vector
+            "   ,)|  ",         // Best notating comma maybe flacco
         ] as Row<{ of: Popular23FreeClass & BestNotatingCommaProperties; header: true }>
+        /* eslint-enable prettier/prettier */
+
         expect(actual).toEqual(expected)
     })
 })
