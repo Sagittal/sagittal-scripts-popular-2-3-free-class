@@ -1,4 +1,4 @@
-import {Popular23FreeClassesScriptGroupSettings} from "./types"
+import { Popular23FreeClassesScriptGroupSettings } from "./types"
 
 const DEFAULT_POPULAR_2_3_FREE_CLASSES_SCRIPTS_SETTINGS: Popular23FreeClassesScriptGroupSettings = {
     useLate: false,
@@ -6,6 +6,4 @@ const DEFAULT_POPULAR_2_3_FREE_CLASSES_SCRIPTS_SETTINGS: Popular23FreeClassesScr
     useBestNotatingCommas: false,
 }
 
-export {
-    DEFAULT_POPULAR_2_3_FREE_CLASSES_SCRIPTS_SETTINGS,
-}
+export { DEFAULT_POPULAR_2_3_FREE_CLASSES_SCRIPTS_SETTINGS }

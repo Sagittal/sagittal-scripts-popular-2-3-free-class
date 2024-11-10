@@ -12,9 +12,7 @@ import { Popular23FreeClass } from "../../types"
 import { BestNotatingCommaProperties } from "../types"
 
 const computePopular23FreeClassWithBestNotatingCommaRow = (
-    rankedPopular23FreeClassWithBestNotatingComma: Ranked<
-        Popular23FreeClass & BestNotatingCommaProperties
-    >,
+    rankedPopular23FreeClassWithBestNotatingComma: Ranked<Popular23FreeClass & BestNotatingCommaProperties>,
 ): Row<{ of: Popular23FreeClass & BestNotatingCommaProperties; header: true }> => {
     const {
         two3FreeClass,

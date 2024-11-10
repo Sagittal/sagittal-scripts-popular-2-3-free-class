@@ -3,13 +3,15 @@ import {
     computeScaledVectorFromQuotient,
     Max,
     Quotient,
+    Rational,
+    Rough,
 } from "@sagittal/general"
 import { analyze23FreeClass, computeKnownRationalQuotients, N2D3P9 } from "@sagittal/system"
 import { computePopular23FreeClass } from "./popular23FreeClass"
 import { Popular23FreeClass } from "./types"
 
 const computePopular23FreeClassFromRationalQuotient = (
-    rationalQuotient: Quotient<{ rational: true }>,
+    rationalQuotient: Quotient<Rational>,
 ): Popular23FreeClass => {
     const rationalScaledVector = computeScaledVectorFromQuotient(rationalQuotient)
     const two3FreeClass = compute23FreeClass(rationalScaledVector)
@@ -18,11 +20,9 @@ const computePopular23FreeClassFromRationalQuotient = (
     return computePopular23FreeClass(two3FreeClassAnalysis)
 }
 
-const computePopular23FreeClassesFromKnownNumerators = (
-    maxN2D3P9: Max<N2D3P9>,
-): Popular23FreeClass[] => {
+const computePopular23FreeClassesFromKnownNumerators = (maxN2D3P9: Max<N2D3P9>): Popular23FreeClass[] => {
     const knownRationalQuotients = computeKnownRationalQuotients(maxN2D3P9)
-    knownRationalQuotients.push([1, 1] as Quotient<{ rational: true; rough: 5 }>)
+    knownRationalQuotients.push([1, 1] as Quotient<Rational & Rough<5>>)
 
     return knownRationalQuotients.map(computePopular23FreeClassFromRationalQuotient)
 }

@@ -1,9 +1,9 @@
-import { Cents, Maybe, Vector } from "@sagittal/general"
+import { Cents, Maybe, Rational, Vector } from "@sagittal/general"
 import { CommaClassId } from "@sagittal/system"
 
 interface BestNotatingCommaProperties {
     bestNotatingCommaCents: Cents
-    bestNotatingCommaVector: Vector<{ rational: true }>
+    bestNotatingCommaVector: Vector<Rational>
     bestNotatingCommaMaybeCommaClassId: Maybe<CommaClassId>
 }
 

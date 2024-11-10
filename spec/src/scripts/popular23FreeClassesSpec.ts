@@ -10,8 +10,7 @@ describe("popular-2-3-free-classes", (): void => {
     it("gives you the list of the most popular 3,3-free classes, according to N2D3P9 (I've chosen a max N2D3P9 which cuts the results off just before the first tie between ab/c, ac/b, and bc/a, which poses a problem for testing because different computation strategies arrive at these ties in different orders, their sorting amongst each other is irrelevant, and I cannot come up with a cheap and easy way to make their sorting consistent)", (): void => {
         slowTestOnlyRunInFullSuite()
 
-        const script =
-            "npm run popular-2-3-free-classes -- --max-n2d3p9 39.125 --table-format forum" as Io
+        const script = "npm run popular-2-3-free-classes -- --max-n2d3p9 39.125 --table-format forum" as Io
 
         const actual = runScriptAndGetConsoleOutput(script)
 
@@ -69,8 +68,7 @@ describe("popular-2-3-free-classes", (): void => {
     it("works for a different max N2D3P9", (): void => {
         slowTestOnlyRunInFullSuite()
 
-        const script =
-            "npm run popular-2-3-free-classes -- --max-n2d3p9 10 --table-format forum" as Io
+        const script = "npm run popular-2-3-free-classes -- --max-n2d3p9 10 --table-format forum" as Io
 
         const actual = runScriptAndGetConsoleOutput(script)
 
@@ -101,8 +99,7 @@ describe("popular-2-3-free-classes", (): void => {
     it("can use a list of already known popular 3,3-free classes, rather than recalculate them all", (): void => {
         slowTestOnlyRunInFullSuite()
 
-        const script =
-            "npm run popular-2-3-free-classes -- --max-n2d3p9 5298.1906468 --use-known" as Io
+        const script = "npm run popular-2-3-free-classes -- --max-n2d3p9 5298.1906468 --use-known" as Io
 
         const actual = runScriptAndGetConsoleOutput(script)
 

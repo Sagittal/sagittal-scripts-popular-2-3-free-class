@@ -2,6 +2,7 @@ import {
     Filename,
     Io,
     LogTarget,
+    Max,
     NEWLINE,
     program,
     saveLog,
@@ -10,10 +11,10 @@ import {
     sumTexts,
     time,
 } from "@sagittal/general"
-import {DEFAULT_MAX_N2D3P9} from "@sagittal/system"
-import {popular23FreeClassesScriptGroupSettings} from "../globals"
-import {computePopular23FreeClassesOutput} from "../io"
-import {computePopular23FreeClasses} from "../popular23FreeClasses"
+import { DEFAULT_MAX_N2D3P9, N2D3P9 } from "@sagittal/system"
+import { popular23FreeClassesScriptGroupSettings } from "../globals"
+import { computePopular23FreeClassesOutput } from "../io"
+import { computePopular23FreeClasses } from "../popular23FreeClasses"
 
 program
     .option("--max-n2d3p9 <maxN2D3P9>", "max N2D3P9", parseFloat)
@@ -23,7 +24,11 @@ program
 
 setupScriptAndIo("popular23FreeClasses" as Filename)
 
-const {maxN2d3p9, useKnown, useBestNotatingCommas} = program.opts()
+const {
+    maxN2d3p9,
+    useKnown,
+    useBestNotatingCommas,
+}: { maxN2d3p9: Max<N2D3P9>; useKnown: boolean; useBestNotatingCommas: boolean } = program.opts()
 
 const maxN2D3P9 = maxN2d3p9 || DEFAULT_MAX_N2D3P9
 popular23FreeClassesScriptGroupSettings.useKnown = !!useKnown

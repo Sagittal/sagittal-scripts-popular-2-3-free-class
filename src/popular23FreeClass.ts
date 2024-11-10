@@ -3,6 +3,7 @@ import {
     COMMA_POPULARITIES,
     Decimal,
     Grade,
+    Integer,
     isUndefined,
     ScalaPopularityStat,
 } from "@sagittal/general"
@@ -12,16 +13,13 @@ import { popular23FreeClassesScriptGroupSettings } from "./globals"
 import { computeNotatingSymbolClassesProperties } from "./notatingSymbolClasses"
 import { Popular23FreeClass } from "./types"
 
-const computePopular23FreeClass = (
-    two3FreeClassAnalysis: Two3FreeClassAnalysis,
-): Popular23FreeClass => {
+const computePopular23FreeClass = (two3FreeClassAnalysis: Two3FreeClassAnalysis): Popular23FreeClass => {
     const { two3FreeClass } = two3FreeClassAnalysis
     const popularity = COMMA_POPULARITIES.find((popularity: ScalaPopularityStat): boolean => {
         return areRationalScaledVectorsEqual(popularity.two3FreeClass, two3FreeClass)
     })
     const popularityRank = !isUndefined(popularity) ? popularity.rank : undefined
-    const votes =
-        popularity?.votes || (0 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>)
+    const votes = popularity?.votes || (0 as Decimal<Integer> & Grade<ScalaPopularityStat>)
 
     const bestNotatingCommaOrNotatingSymbolClassesProperties =
         popular23FreeClassesScriptGroupSettings.useBestNotatingCommas

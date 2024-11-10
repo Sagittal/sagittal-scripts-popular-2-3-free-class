@@ -1,14 +1,14 @@
-import {Comma, computeCentsFromPitch} from "@sagittal/general"
-import {computeAas} from "@sagittal/system"
+import { Comma, computeCentsFromPitch } from "@sagittal/general"
+import { computeAas } from "@sagittal/system"
 
 const isLaas = (notatingComma: Comma, bestNotatingComma: Comma): boolean => {
     const aas = computeAas(notatingComma)
     const laas = computeAas(bestNotatingComma)
 
-    return aas < laas ||
+    return (
+        aas < laas ||
         (aas === laas && computeCentsFromPitch(notatingComma) < computeCentsFromPitch(bestNotatingComma))
+    )
 }
 
-export {
-    isLaas,
-}
+export { isLaas }

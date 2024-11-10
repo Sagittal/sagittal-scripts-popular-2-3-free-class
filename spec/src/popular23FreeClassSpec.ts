@@ -1,21 +1,18 @@
 import {
     Cents,
     Decimal,
-    Direction,
     Grade,
     Index,
     Vector,
     Rank,
     ScalaPopularityStat,
     Two3FreeClass,
+    Rational,
+    Super,
+    Rough,
+    Integer,
 } from "@sagittal/general"
-import {
-    CommaClassId,
-    N2D3P9,
-    SymbolClassId,
-    SymbolSubsetId,
-    Two3FreeClassAnalysis,
-} from "@sagittal/system"
+import { CommaClassId, N2D3P9, SymbolClassId, SymbolSubsetId, Two3FreeClassAnalysis } from "@sagittal/system"
 import { popular23FreeClassesScriptGroupSettings } from "../../src/globals"
 import { computePopular23FreeClass } from "../../src/popular23FreeClass"
 import { Popular23FreeClass } from "../../src/types"
@@ -26,7 +23,7 @@ describe("computePopular23FreeClass", (): void => {
         ...two3FreeClassAnalysisFixture,
         n2d3p9: 1.388889 as N2D3P9,
         two3FreeClass: {
-            vector: [0, 0, 1] as Vector<{ rational: true; rough: 5; direction: Direction.SUPER }>,
+            vector: [0, 0, 1] as Vector<Rational & Super & Rough<5>>,
         } as Two3FreeClass,
     }
 
@@ -36,7 +33,7 @@ describe("computePopular23FreeClass", (): void => {
         const expected: Popular23FreeClass = {
             ...two3FreeClassAnalysis,
             popularityRank: 2 as Rank<ScalaPopularityStat>,
-            votes: 5371 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
+            votes: 5371 as Decimal<Integer> & Grade<ScalaPopularityStat>,
             notatingSymbolClassIds: [SymbolClassId.TICK, SymbolClassId.LEFT_BARB],
             notatingSymbolClassSmallestSymbolSubsetIndices: [5, 1] as Array<Index<SymbolSubsetId>>,
         }
@@ -50,9 +47,9 @@ describe("computePopular23FreeClass", (): void => {
         const expected: Popular23FreeClass = {
             ...two3FreeClassAnalysis,
             popularityRank: 2 as Rank<ScalaPopularityStat>,
-            votes: 5371 as Decimal<{ integer: true }> & Grade<ScalaPopularityStat>,
+            votes: 5371 as Decimal<Integer> & Grade<ScalaPopularityStat>,
             bestNotatingCommaCents: 21.50629 as Cents,
-            bestNotatingCommaVector: [-4, 4, -1] as Vector<{ rational: true }>,
+            bestNotatingCommaVector: [-4, 4, -1] as Vector<Rational>,
             bestNotatingCommaMaybeCommaClassId: CommaClassId._1_V_5_C,
         }
         expect(actual).toBeCloseToObject(expected)

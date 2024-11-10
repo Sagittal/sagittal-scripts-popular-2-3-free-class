@@ -6,6 +6,7 @@ import {
     dividesEvenly,
     Filename,
     formatTime,
+    Integer,
     LogTarget,
     Ms,
     NEWLINE,
@@ -27,10 +28,11 @@ import {
     SortedNumeratorPossibilityWithGreaterGpfThanDenominatorPrimeIncludingN2P,
     SortedNumeratorPossibilityWithLesserGpfThanDenominatorPrimeIncludingN2,
 } from "@sagittal/system"
+import { NumeratorPossibilityForDenominatorGivenMaxN2D3P9 } from "@sagittal/system/dist/cjs/ji/badness/complexity/unpopularity/n2d3p9/primeCountExtremas/denominator"
 
 // Dave's strategy for getting further along: http://forum.sagittal.org/viewtopic.php?p=2481#p2481
 
-const ALREADY_FOUND_NUMERATORS = JSON.parse(`[${readLines("src" as Filename).join(COMMA)}]`)
+const ALREADY_FOUND_NUMERATORS = JSON.parse(`[${readLines("src" as Filename).join(COMMA)}]`) as Numerator[]
 
 const ALREADY_SEARCHED_UP_TO_NUMERATOR = 9765625
 
@@ -49,23 +51,31 @@ let previousSuccessfulNumerator = 1
 
 let checkInPoint = ALREADY_SEARCHED_UP_TO_NUMERATOR + 10000
 
-ALREADY_FOUND_NUMERATORS.forEach((numerator: Numerator & Decimal<{integer: true}>): void => {
+ALREADY_FOUND_NUMERATORS.forEach((numerator: Numerator): void => {
     const n2 = computeN2(numerator)
     const gpf = computeRationalDecimalGpf(numerator)
     const n2p = n2 * gpf
 
     saveLog(`${numerator}: ${n2p} (already found numerator)`, LogTarget.PROGRESS)
-    n2Results.push({numerator, gpf, n2} as SortedNumeratorPossibilityWithLesserGpfThanDenominatorPrimeIncludingN2)
-    n2pResults.push({numerator, gpf, n2p} as SortedNumeratorPossibilityWithGreaterGpfThanDenominatorPrimeIncludingN2P)
+    n2Results.push({
+        numerator,
+        gpf,
+        n2,
+    } as NumeratorPossibilityForDenominatorGivenMaxN2D3P9 as SortedNumeratorPossibilityWithLesserGpfThanDenominatorPrimeIncludingN2)
+    n2pResults.push({
+        numerator,
+        gpf,
+        n2p,
+    } as NumeratorPossibilityForDenominatorGivenMaxN2D3P9 as SortedNumeratorPossibilityWithGreaterGpfThanDenominatorPrimeIncludingN2P)
 })
 
 for (
-    let numerator = ALREADY_SEARCHED_UP_TO_NUMERATOR + 2 as Numerator & Decimal<{integer: true}>;
+    let numerator = (ALREADY_SEARCHED_UP_TO_NUMERATOR + 2) as Numerator;
     numerator <= MAX_NUMERATOR;
-    numerator = numerator + 2 as Numerator & Decimal<{integer: true}>
+    numerator = (numerator + 2) as Numerator
 ) {
     // 5, 7, _ 11, 13, _, 17, 19
-    if (dividesEvenly(numerator, 3)) continue
+    if (dividesEvenly(numerator, 3 as Decimal<Integer>)) continue
 
     if (numerator > checkInPoint) {
         checkInPoint = checkInPoint + 10000
@@ -90,19 +100,30 @@ for (
     const averageTimeSpentPerNumeratorSincePreviousSuccess = delta / numeratorsChecked
     const numeratorsRemaining = (MAX_NUMERATOR - numerator) / 3
     const timeRemainingEstimate = formatTime(
-        numeratorsRemaining * averageTimeSpentPerNumeratorSincePreviousSuccess as Ms,
+        (numeratorsRemaining * averageTimeSpentPerNumeratorSincePreviousSuccess) as Ms,
         TimePrecision.M,
     )
 
-    saveLog(`${numerator}: ${n2p} (~${timeRemainingEstimate} remaining; avg/num since previous success ${formatTime(averageTimeSpentPerNumeratorSincePreviousSuccess as Ms)})`, LogTarget.PROGRESS)
-    n2Results.push({numerator, gpf, n2} as SortedNumeratorPossibilityWithLesserGpfThanDenominatorPrimeIncludingN2)
-    n2pResults.push({numerator, gpf, n2p} as SortedNumeratorPossibilityWithGreaterGpfThanDenominatorPrimeIncludingN2P)
+    saveLog(
+        `${numerator}: ${n2p} (~${timeRemainingEstimate} remaining; avg/num since previous success ${formatTime(averageTimeSpentPerNumeratorSincePreviousSuccess as Ms)})`,
+        LogTarget.PROGRESS,
+    )
+    n2Results.push({
+        numerator,
+        gpf,
+        n2,
+    } as NumeratorPossibilityForDenominatorGivenMaxN2D3P9 as SortedNumeratorPossibilityWithLesserGpfThanDenominatorPrimeIncludingN2)
+    n2pResults.push({
+        numerator,
+        gpf,
+        n2p,
+    } as NumeratorPossibilityForDenominatorGivenMaxN2D3P9 as SortedNumeratorPossibilityWithGreaterGpfThanDenominatorPrimeIncludingN2P)
 }
 
-sort(n2Results, {by: computeKeyPath("n2")})
-sort(n2pResults, {by: computeKeyPath("n2p")})
+sort(n2Results, { by: computeKeyPath("n2") })
+sort(n2pResults, { by: computeKeyPath("n2p") })
 
-saveLog(stringify(n2Results, {multiline: true}), LogTarget.FINAL)
-saveLog(stringify(n2pResults, {multiline: true}), LogTarget.FINAL)
+saveLog(stringify(n2Results, { multiline: true }), LogTarget.FINAL)
+saveLog(stringify(n2pResults, { multiline: true }), LogTarget.FINAL)
 
 if (scriptSettings.time) saveLog(sumTexts(NEWLINE, `took ${time()}`), LogTarget.FINAL)

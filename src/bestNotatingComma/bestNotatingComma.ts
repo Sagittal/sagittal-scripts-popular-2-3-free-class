@@ -1,18 +1,16 @@
-import {Comma, isUndefined, Maybe} from "@sagittal/general"
-import {popular23FreeClassesScriptGroupSettings} from "../globals"
-import {isLaas} from "./isLaas"
-import {isLate} from "./isLate"
+import { Comma, isUndefined, Maybe } from "@sagittal/general"
+import { popular23FreeClassesScriptGroupSettings } from "../globals"
+import { isLaas } from "./isLaas"
+import { isLate } from "./isLate"
 
 const computeBestNotatingComma = (notatingCommas: Comma[]): Comma => {
     let bestNotatingComma: Maybe<Comma> = undefined
     for (const notatingComma of notatingCommas) {
         if (
             isUndefined(bestNotatingComma) ||
-            (
-                popular23FreeClassesScriptGroupSettings.useLate ?
-                    isLate(notatingComma, bestNotatingComma) :
-                    isLaas(notatingComma, bestNotatingComma)
-            )
+            (popular23FreeClassesScriptGroupSettings.useLate
+                ? isLate(notatingComma, bestNotatingComma)
+                : isLaas(notatingComma, bestNotatingComma))
         ) {
             bestNotatingComma = notatingComma
         }
@@ -25,6 +23,4 @@ const computeBestNotatingComma = (notatingCommas: Comma[]): Comma => {
     return bestNotatingComma
 }
 
-export {
-    computeBestNotatingComma,
-}
+export { computeBestNotatingComma }
