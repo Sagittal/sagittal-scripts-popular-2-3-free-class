@@ -6,6 +6,7 @@ import {
     Ranked,
     Row,
     SPACE,
+    stringify,
 } from "@sagittal/general"
 import { formatSymbolClass, SymbolClass, SymbolClassId } from "@sagittal/system"
 import { Popular23FreeClass } from "../../types"
@@ -33,9 +34,9 @@ const computePopular23FreeClassWithNotatingSymbolClassesRow = (
             })
             .join(SPACE),
         notatingSymbolClassSmallestSymbolSubsetIndices.join(", "),
-        estimatedRank.toString(),
-        isUndefined(actualRank) ? "-" : actualRank.toString(),
-        votes.toString(),
+        stringify(estimatedRank),
+        isUndefined(actualRank) ? "-" : stringify(actualRank),
+        stringify(votes),
     ] as Row<{ of: Popular23FreeClass & NotatingSymbolClassesProperties; header: true }>
 }
 

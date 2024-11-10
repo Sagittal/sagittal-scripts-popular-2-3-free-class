@@ -6,6 +6,7 @@ import {
     isUndefined,
     Ranked,
     Row,
+    stringify,
 } from "@sagittal/general"
 import { formatCommaClass } from "@sagittal/system"
 import { Popular23FreeClass } from "../../types"
@@ -24,7 +25,7 @@ const computePopular23FreeClassWithBestNotatingCommaRow = (
 
     return [
         format23FreeClass(two3FreeClass),
-        estimatedRank.toString(),
+        stringify(estimatedRank),
         formatCents(bestNotatingCommaCents, { align: true }),
         formatVector(bestNotatingCommaVector),
         isUndefined(bestNotatingCommaMaybeCommaClassId)
