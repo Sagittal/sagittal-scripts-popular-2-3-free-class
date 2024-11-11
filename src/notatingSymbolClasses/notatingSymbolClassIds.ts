@@ -29,7 +29,7 @@ const computeNotatingSymbolClassIds = ({ vector }: ScaledVector<Rational>): Symb
             areVectorsEqual(two3FreeRationalVector, commaClassTwo3FreeVector) ||
             areVectorsEqual(two3FreeRationalVector, invertVector(commaClassTwo3FreeVector))
         ) {
-            const symbolClassEntries = Object.entries(SYMBOL_CLASSES) as Array<[SymbolClassId, SymbolClass]>
+            const symbolClassEntries = Object.entries(SYMBOL_CLASSES) as [SymbolClassId, SymbolClass][]
             const symbolClassEntry = symbolClassEntries.find(
                 ([_, symbolClass]: [SymbolClassId, SymbolClass]): boolean => {
                     return symbolClass.commaClassId === commaClassId

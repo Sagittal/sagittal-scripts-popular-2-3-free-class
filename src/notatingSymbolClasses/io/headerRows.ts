@@ -12,8 +12,9 @@ const POPULAR_2_3_FREE_CLASS_WITH_NOTATING_SYMBOL_CLASSES_FIELD_TITLES: Io[] = [
     "Scala archive occurrences",
 ] as Io[]
 
-const computePopular23FreeClassWithNotatingSymbolClassesHeaderRows = (): Array<
-    Row<{ of: Popular23FreeClass & NotatingSymbolClassesProperties; header: true }>
-> => splitFieldTitlesIntoRowsBySpaces(POPULAR_2_3_FREE_CLASS_WITH_NOTATING_SYMBOL_CLASSES_FIELD_TITLES)
+const computePopular23FreeClassWithNotatingSymbolClassesHeaderRows = (): Row<{
+    of: Popular23FreeClass & NotatingSymbolClassesProperties
+    header: true
+}>[] => splitFieldTitlesIntoRowsBySpaces(POPULAR_2_3_FREE_CLASS_WITH_NOTATING_SYMBOL_CLASSES_FIELD_TITLES)
 
 export { computePopular23FreeClassWithNotatingSymbolClassesHeaderRows }

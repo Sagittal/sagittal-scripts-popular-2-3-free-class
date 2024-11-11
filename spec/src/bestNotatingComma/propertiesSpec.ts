@@ -1,4 +1,4 @@
-import { Cents, Vector, Two3FreeClass, Rational } from "@sagittal/general"
+import { Cents, Vector, Two3FreeClass } from "@sagittal/general"
 import { CommaClassId } from "@sagittal/system"
 import {
     BestNotatingCommaProperties,
@@ -13,7 +13,7 @@ describe("computeBestNotatingCommaProperties", (): void => {
 
         const expected: BestNotatingCommaProperties = {
             bestNotatingCommaCents: 29.217813 as Cents,
-            bestNotatingCommaVector: [-9, 6, 1, -1] as Vector<Rational>,
+            bestNotatingCommaVector: [-9, 6, 1, -1] as Vector,
             bestNotatingCommaMaybeCommaClassId: CommaClassId._5_V_7_C,
         }
         expect(actual).toBeCloseToObject(expected)

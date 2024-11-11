@@ -47,7 +47,7 @@ const computeMaybeSuperPopular23FreeClass = (
     return undefined
 }
 
-const computePopular23FreeClasses = (maxN2D3P9: Max<N2D3P9>): Array<Ranked<Popular23FreeClass>> => {
+const computePopular23FreeClasses = (maxN2D3P9: Max<N2D3P9>): Ranked<Popular23FreeClass>[] => {
     let popular23FreeClasses: Popular23FreeClass[]
     if (popular23FreeClassesScriptGroupSettings.useKnown) {
         popular23FreeClasses = computeKnownPopular23FreeClasses()

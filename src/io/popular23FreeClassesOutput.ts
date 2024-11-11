@@ -14,7 +14,7 @@ import {
 import { Popular23FreeClass } from "../types"
 
 const computePopular23FreeClassesOutput = (
-    popular23FreeClasses: Array<Ranked<Popular23FreeClass>>,
+    popular23FreeClasses: Ranked<Popular23FreeClass>[],
     maxN2D3P9: Max<N2D3P9>,
 ): Io => {
     const headerRows: Table<Popular23FreeClass> =

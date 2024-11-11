@@ -12,7 +12,7 @@ describe("computePopular23FreeClassWithNotatingSymbolClassesRow", (): void => {
         Popular23FreeClass & NotatingSymbolClassesProperties
     > = {
         ...rankedPopular23FreeClassFixture,
-        notatingSymbolClassSmallestSymbolSubsetIndices: [1, 3] as Array<Index<SymbolSubsetId>>,
+        notatingSymbolClassSmallestSymbolSubsetIndices: [1, 3] as Index<SymbolSubsetId>[],
         notatingSymbolClassIds: [SymbolClassId.DOUBLE_SCROLL, SymbolClassId.ANTITICK_AND_LEFT_BARB],
     } as Ranked<Popular23FreeClass & NotatingSymbolClassesProperties>
 

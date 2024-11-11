@@ -10,8 +10,9 @@ const POPULAR_2_3_FREE_CLASS_WITH_BEST_NOTATING_COMMA_FIELD_TITLES: Io[] = [
     "best notating comma maybe flacco",
 ] as Io[]
 
-const computePopular23FreeClassWithBestNotatingCommaHeaderRows = (): Array<
-    Row<{ of: Popular23FreeClass & BestNotatingCommaProperties; header: true }>
-> => splitFieldTitlesIntoRowsBySpaces(POPULAR_2_3_FREE_CLASS_WITH_BEST_NOTATING_COMMA_FIELD_TITLES)
+const computePopular23FreeClassWithBestNotatingCommaHeaderRows = (): Row<{
+    of: Popular23FreeClass & BestNotatingCommaProperties
+    header: true
+}>[] => splitFieldTitlesIntoRowsBySpaces(POPULAR_2_3_FREE_CLASS_WITH_BEST_NOTATING_COMMA_FIELD_TITLES)
 
 export { computePopular23FreeClassWithBestNotatingCommaHeaderRows }

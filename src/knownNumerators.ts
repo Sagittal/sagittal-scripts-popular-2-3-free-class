@@ -10,9 +10,7 @@ import { analyze23FreeClass, computeKnownRationalQuotients, N2D3P9 } from "@sagi
 import { computePopular23FreeClass } from "./popular23FreeClass"
 import { Popular23FreeClass } from "./types"
 
-const computePopular23FreeClassFromRationalQuotient = (
-    rationalQuotient: Quotient<Rational>,
-): Popular23FreeClass => {
+const computePopular23FreeClassFromRationalQuotient = (rationalQuotient: Quotient): Popular23FreeClass => {
     const rationalScaledVector = computeScaledVectorFromQuotient(rationalQuotient)
     const two3FreeClass = compute23FreeClass(rationalScaledVector)
     const two3FreeClassAnalysis = analyze23FreeClass(two3FreeClass)

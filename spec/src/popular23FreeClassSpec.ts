@@ -35,7 +35,7 @@ describe("computePopular23FreeClass", (): void => {
             popularityRank: 2 as Rank<ScalaPopularityStat>,
             votes: 5371 as Decimal<Integer> & Grade<ScalaPopularityStat>,
             notatingSymbolClassIds: [SymbolClassId.TICK, SymbolClassId.LEFT_BARB],
-            notatingSymbolClassSmallestSymbolSubsetIndices: [5, 1] as Array<Index<SymbolSubsetId>>,
+            notatingSymbolClassSmallestSymbolSubsetIndices: [5, 1] as Index<SymbolSubsetId>[],
         }
         expect(actual).toEqual(expected)
     })
@@ -49,7 +49,7 @@ describe("computePopular23FreeClass", (): void => {
             popularityRank: 2 as Rank<ScalaPopularityStat>,
             votes: 5371 as Decimal<Integer> & Grade<ScalaPopularityStat>,
             bestNotatingCommaCents: 21.50629 as Cents,
-            bestNotatingCommaVector: [-4, 4, -1] as Vector<Rational>,
+            bestNotatingCommaVector: [-4, 4, -1] as Vector,
             bestNotatingCommaMaybeCommaClassId: CommaClassId._1_V_5_C,
         }
         expect(actual).toBeCloseToObject(expected)

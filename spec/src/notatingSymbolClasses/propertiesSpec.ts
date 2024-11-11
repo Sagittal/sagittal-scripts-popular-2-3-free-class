@@ -13,7 +13,7 @@ describe("computeNotatingSymbolClassesProperties", (): void => {
 
         const expected: NotatingSymbolClassesProperties = {
             notatingSymbolClassIds: [SymbolClassId.RIGHT_SCROLL, SymbolClassId.TICK_AND_RIGHT_ARC],
-            notatingSymbolClassSmallestSymbolSubsetIndices: [1, 5] as Array<Index<SymbolSubsetId>>,
+            notatingSymbolClassSmallestSymbolSubsetIndices: [1, 5] as Index<SymbolSubsetId>[],
         }
         expect(actual).toEqual(expected)
     })
