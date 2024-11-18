@@ -25,10 +25,10 @@ import {
 import {
     computeN2,
     MAX_N2D3P9_FOR_WHICH_POSSIBLE_NUMERATORS_ARE_KNOWN,
+    NumeratorPossibilityForDenominatorGivenMaxN2D3P9,
     SortedNumeratorPossibilityWithGreaterGpfThanDenominatorPrimeIncludingN2P,
     SortedNumeratorPossibilityWithLesserGpfThanDenominatorPrimeIncludingN2,
 } from "@sagittal/system"
-import { NumeratorPossibilityForDenominatorGivenMaxN2D3P9 } from "@sagittal/system/dist/cjs/ji/badness/complexity/unpopularity/n2d3p9/primeCountExtremas/denominator"
 
 // Dave's strategy for getting further along: http://forum.sagittal.org/viewtopic.php?p=2481#p2481
 
